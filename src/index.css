@@ -3,3 +3,7 @@
   themes: light --default, dark --prefersdark;
 }
 
+@theme {
+  --color-custom-blue: #1E90FF;
+  --color-custom-orange: #FF5733;
+}
