@@ -1,11 +1,12 @@
 import './App.css'
+import Nav from './Component/Nav'
 
 
 function App() {
 
   return (
     <>
-      <h1>Movie Craze</h1>
+      <Nav />
     </>
   )
 }
