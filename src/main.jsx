@@ -11,6 +11,9 @@ import MyFavorites from './Component/MyFavorites.jsx';
 import MovieAwards from './Component/MovieAwards.jsx';
 import AllMovies from './Component/AllMovies.jsx';
 import AddMovies from './Component/AddMovies.jsx';
+import AuthProvider from './Provider/AuthProvider.jsx';
+import Login from './Component/Login and Signup/Login.jsx';
+import Signup from './Component/Login and Signup/Signup.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +37,14 @@ const router = createBrowserRouter([
         path: "/movieAwards",
         element: <MovieAwards />,
       },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
+      },
 
     ]
   },
@@ -41,6 +52,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

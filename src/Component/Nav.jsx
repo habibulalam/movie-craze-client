@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Nav = () => {
 
+    const { user, handleSignOut } = useContext(AuthContext);
 
     const location = useLocation();
 
@@ -128,9 +130,19 @@ const Nav = () => {
                         </div>
 
                         {/* Login btn or logout btn (conditional rendering) */}
-                        <div className="flex justify-center items-center gap-3">
-                            <Link to={'/userProfile'} className="border size-fit border-black rounded-full"><img src={''} className="size-9 rounded-full" title={''} alt="" /></Link>
-                            <button className="btn dark:bg-custom-orange">Log Out</button>
+                        <div>
+                            {
+                                user && (
+                                    <div className="flex justify-center items-center gap-3">
+                                        <Link to={''} className="border size-fit border-black rounded-full"><img src={user.photoURL} className="size-11 rounded-full" title={user.displayName} alt="" /></Link>
+                                        <button onClick={handleSignOut} className="btn dark:bg-custom-orange text-white">Log Out</button>
+                                    </div>
+                                )}
+                            {
+                                !user && (
+                                    <Link to={'/login'} className="btn dark:bg-custom-orange text-white">Login / Register</Link>
+                                )
+                            }
                         </div>
                     </div>
                 </div>
