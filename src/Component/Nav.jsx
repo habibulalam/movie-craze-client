@@ -46,7 +46,7 @@ const Nav = () => {
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                                <li className="bg-none flex items-end mb-2">
+                                <li className={`${location.pathname === "/" ? 'bg-none flex items-end mb-2' : 'hidden'} `}>
                                     {/* Toggle button */}
                                     <div>
                                         <label className="toggle text-base-content">
@@ -98,7 +98,7 @@ const Nav = () => {
 
                     <div className="navbar-end gap-5">
                         {/* Toggle button */}
-                        <div className="hidden md:block">
+                        <div className={`${location.pathname === "/" ? 'hidden md:block' : 'hidden'} `}>
                             <label className="toggle text-base-content">
                                 <input
                                     type="checkbox"
@@ -130,7 +130,7 @@ const Nav = () => {
                         {/* Login btn or logout btn (conditional rendering) */}
                         <div className="flex justify-center items-center gap-3">
                             <Link to={'/userProfile'} className="border size-fit border-black rounded-full"><img src={''} className="size-9 rounded-full" title={''} alt="" /></Link>
-                            <button className="btn hover:bg-eco-teal hover:text-white">Log Out</button>
+                            <button className="btn dark:bg-custom-orange">Log Out</button>
                         </div>
                     </div>
                 </div>
