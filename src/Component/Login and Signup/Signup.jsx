@@ -20,7 +20,7 @@ const Signup = () => {
                 console.log(result.user);
 
                 // Show toast
-                toast.success('Login Successful', {
+                toast.success('Signup Successful', {
                     position: "top-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -186,7 +186,7 @@ const Signup = () => {
                             <path className="fill-[#1976D2] group-hover:fill-white" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
                         </svg>
 
-                        <p className="group-hover:text-white">Login with Google</p>
+                        <p className="group-hover:text-white">Signup with Google</p>
                     </button>
                     <p className="text-sm text-center text-gray-400">Already have an account?
                         <Link to={'/login'} href="#" rel="noopener noreferrer" className="focus:underline hover:underline text-gray-500"> Login here</Link>
