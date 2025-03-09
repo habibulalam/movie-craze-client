@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Signup = () => {
 
@@ -17,6 +18,19 @@ const Signup = () => {
         handleSigninWithGoogle()
             .then(result => {
                 console.log(result.user);
+
+                // Show toast
+                toast.success('Login Successful', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+
                 setTimeout(() => {
                     navigateToHome('/')
                 }, 1000);
@@ -67,6 +81,17 @@ const Signup = () => {
                             });
 
                             setSuccessfulMsg("User Created Successfully");
+                            // Show toast
+                            toast.success('Signup Successful', {
+                                position: "top-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: false,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "colored",
+                            });
                         });
                     })
                     .catch(err => {
@@ -79,6 +104,17 @@ const Signup = () => {
             .catch(err => {
                 console.log("Error occurred while creating new user", err);
                 setErrorMsg(err.message);
+                // Show error toast
+                toast.error('Signup failed. Try again', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
             });
 
     }

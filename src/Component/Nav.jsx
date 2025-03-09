@@ -134,7 +134,7 @@ const Nav = () => {
                             {
                                 user && (
                                     <div className="flex justify-center items-center gap-3">
-                                        <Link to={''} className="border size-fit border-black rounded-full"><img src={user.photoURL} className="size-11 rounded-full" title={user.displayName} alt="" /></Link>
+                                        <div className="border size-fit border-black rounded-full tooltip tooltip-bottom" data-tip={user.displayName}><img src={user.photoURL} className="size-11 rounded-full" alt="" /></div>
                                         <button onClick={handleSignOut} className="btn dark:bg-custom-orange text-white">Log Out</button>
                                     </div>
                                 )}

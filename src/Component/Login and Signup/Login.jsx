@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 import { AuthContext } from "../../Provider/AuthProvider";
 
 
@@ -18,6 +19,19 @@ const Login = () => {
         handleSigninWithGoogle()
             .then(result => {
                 console.log(result.user);
+
+                // Show toast
+                toast.success('Login Successful', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+
                 // Navigate user to the last route they visited before login
                 navigateToDestinationRoute(lastRouteVisited)
 
@@ -44,6 +58,19 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 setSuccessfulMsg("Sign in successful")
+
+                // Show toast
+                toast.success('Login Successful', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+
                 // Navigate user to the last route they visited before login
                 navigateToDestinationRoute(lastRouteVisited)
             })
@@ -53,6 +80,18 @@ const Login = () => {
                 console.log(errorCode, errorMessage);
                 console.log(err);
                 setErrorMsg(err.code)
+
+                // Show error toast
+                toast.error('Login failed. Try again or sign up.', {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    });
             })
     }
 
